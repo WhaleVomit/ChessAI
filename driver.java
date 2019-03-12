@@ -87,7 +87,7 @@ public class driver {
         return Math.sqrt(Math.pow(x0-x1,2) + Math.pow(y0-y1, 2));
     }
     static void cMove(int team) {
-        // choose your move (x0,y0,x1,y1) here
+        // choose your move (x0,y0) -> (x1,y1) here
         
         System.out.println(b.toChessMove(x0,y0,x1,y1));
         b.move(x0,y0,x1,y1,pro);
@@ -117,7 +117,7 @@ public class driver {
         return System.currentTimeMillis() - startTime[ind];
     }
     public static void main(String[] args) {
-        System.out.println("Team");
+        System.out.println("Started chess engine");
         Scanner sc = new Scanner(System.in);
         b = new board(); //int team = sc.nextInt(); b.side = team;
         StdDraw.enableDoubleBuffering();
