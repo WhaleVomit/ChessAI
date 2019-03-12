@@ -4,15 +4,8 @@ public class driver {
     static piece heldPiece;
     static int heldx, heldy;
     static board b;
-    static pi[] killerMoves = new pi[100];
-    static pi[] killerMovesQ = new pi[100];
     static long[] startTime = new long[100];
-    static int cnt = 0;
     static int timeLimit = 1000;
-    static boolean finishedSearch = true;
-    static long seed;
-    static Random rand;
-    static int searchdepth = 0;
     public static void hMove(int team) {
         boolean clickCheck = false;
         while(true) {
