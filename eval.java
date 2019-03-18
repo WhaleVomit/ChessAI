@@ -7,7 +7,8 @@ public class eval {
             if(b.kingEndangered(team)) { // checkmate
                 double tot = 0;
                 for(int i = 0; i < 8; i++) for(int j = 0; j < 8; j++) tot += state[i][j].numMoves;
-                return -1000000*(1000-tot);
+                if(team == 0) return -1000000*(1000-tot);
+                else return 1000000*(1000-tot);
             } else { // stalemate
                 return 0;
             }
@@ -18,12 +19,13 @@ public class eval {
             for(int j = 0; j < 8; j++) {
                 if(b.containsPiece(i,j)) {
                     piece p = state[i][j];
-                    if(p.team == team) res += C.pieceval[p.type];
+                    if(p.team == 0) res += C.pieceval[p.type];
                     else res -= C.pieceval[p.type];
                 }
             }
         }
-        res += pieceSquare(b, team);
+        if(team == 0) res += pieceSquare(b, team);
+        else res -= pieceSquare(b, team);
         return res;
     }
     public static double mobility(board b, int team) {
